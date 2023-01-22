@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('faves', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+
+            $table->enum('type',['real_time','end_of_day','no_travel_today']);
+            $table->integer('sequence');
+            $table->point('location');
+            $table->foreignId('place_id')->constrained();
+            $table->boolean('major_shopping_centre');            
+
             $table->timestamps();
         });
     }
