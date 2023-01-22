@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Checkin extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'checkin_at' => 'date',
+    ];
+
 }

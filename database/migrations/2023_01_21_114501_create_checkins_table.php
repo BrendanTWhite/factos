@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
 
             $table->enum('stage',['new','sent','done','error']);
-            $table->date('date');
+            $table->date('checkin_at');
 
             $table->enum('type',['real_time','end_of_day','no_travel_today']);
             $table->integer('sequence');

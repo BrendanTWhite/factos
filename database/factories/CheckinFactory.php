@@ -17,7 +17,19 @@ class CheckinFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            'stage'       => fake()->randomElement(['new','sent','done','error']),
+            'checkin_at'  => fake()->dateTime(),
+
+            'type'        => fake()->randomElement(['real_time','end_of_day','no_travel_today']),
+            'sequence'    => fake()->randomDigit(),
+            'address'     => fake()->streetAddress(),
+            'google_type' => fake()->randomElement(['asdf','qwer','zxcv','poiu']),
+            'latitude'    => fake()->latitude(),
+            'longitude'   => fake()->longitude(),
+            'place_id'    => fake()->numberBetween(1,62),
+            'major_shopping_centre' => false,
+
         ];
     }
 }
