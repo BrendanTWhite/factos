@@ -21,7 +21,10 @@ return new class extends Migration
 
             $table->enum('type',['real_time','end_of_day','no_travel_today']);
             $table->integer('sequence');
-            $table->point('location');
+            $table->string('address');
+            $table->string('google_type');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->foreignId('place_id')->constrained();
             $table->boolean('major_shopping_centre');
 
