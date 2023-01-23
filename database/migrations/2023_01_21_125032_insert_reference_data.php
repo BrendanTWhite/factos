@@ -28,8 +28,8 @@ return new class extends Migration
             ['id' => 6,  'description' => 'Recreation'],
             ['id' => 7,  'description' => 'Personal business'],
             ['id' => 8,  'description' => 'Social visit'],
-            ['id' => 9,  'description' => 'Home Place'],
-            ['id' => 10, 'description' => 'Accommodation away from home'],
+            ['id' => 9,  'description' => 'Home'],
+            ['id' => 10, 'description' => 'Accommodation (away from home)'],
             ['id' => 11, 'description' => 'Airport'],
         ]);
 
