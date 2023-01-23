@@ -17,7 +17,12 @@ class CheckinFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            'stage'       => fake()->randomElement(['new','sent','done','error']),
+            'checkin_at'  => fake()->dateTime(),
+            'type'        => fake()->randomElement(['real_time','end_of_day','no_travel_today']),
+            'sequence'    => fake()->numberBetween(1,99),
+            
         ];
     }
 }

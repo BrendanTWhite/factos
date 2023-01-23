@@ -17,7 +17,15 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('place_id')->constrained();
+
             $table->string('description');
+            $table->dateTime('last_visited_at');
+            $table->dateTime('starred_at')->nullable();
+            $table->string('address');
+            $table->string('google_type');
+            $table->double('latitude');
+            $table->double('longitude');
+            $table->boolean('major_shopping_centre');
 
             $table->timestamps();
         });

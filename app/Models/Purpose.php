@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Purpose extends Model
 {
     use HasFactory;
+
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
+
 }

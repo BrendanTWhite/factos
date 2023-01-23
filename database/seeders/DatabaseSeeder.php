@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Checkin;
+use App\Models\Location;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,15 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Checkin::factory()
-            ->count(50)
-            ->sequence(fn ($sequence) => ['sequence' => $sequence->index + 1])
+        Location::factory()
+            ->count(8)
+            ->has(Checkin::factory()->count(3))
             ->create();
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

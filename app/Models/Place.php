@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     use HasFactory;
+
+    public function purpose()
+    {
+        return $this->belongsTo(Purpose::class);
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
 }
