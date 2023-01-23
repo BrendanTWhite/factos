@@ -9,6 +9,8 @@ class Location extends Model
 {
     use HasFactory;
 
+     protected $fillable = ['description'];
+
     protected $casts = [
         'starred_at'      => 'datetime',
         'last_visited_at' => 'datetime',

@@ -23,7 +23,9 @@ class LocationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('description')
+                    ->label('')
+                    ->required(),
             ]);
     }
 
@@ -31,17 +33,29 @@ class LocationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\IconColumn::make('starred_at')
+                ->label('Starred')
+                ->colors([
+                    'primary',
+                    'secondary' => null,
+                ])
+                ->options([
+                    'heroicon-s-star',
+                    'heroicon-o-minus-sm' => null,
+                ]),
+
+                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('address'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
     
