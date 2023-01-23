@@ -3,6 +3,6 @@
 ```mermaid
 erDiagram
     Checkin }|--|| Location : at
-    Location }|--|| Reason : for
-    Reason }|--|| Place : at
+    Location }|--|| Place : for
+    Place }|--|| Purpose : at
 ```
