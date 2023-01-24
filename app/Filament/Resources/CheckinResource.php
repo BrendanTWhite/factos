@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CheckinResource\Pages;
 use App\Filament\Resources\CheckinResource\RelationManagers;
 use App\Models\Checkin;
+use Carbon\Carbon;
 use Filament\Forms;
+use Filament\Forms\Components;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -23,7 +25,26 @@ class CheckinResource extends Resource
     {
         return $form
             ->schema([
-                //
+
+                Components\Select::make('type')
+                    ->options([
+                        'real_time' => 'Now',
+                        'end_of_day' => 'Earlier',
+                        'no_travel_today' => 'No Travel Today',
+                    ])
+                    ->required()
+                    ->default('real_time'),
+
+                Components\Select::make('location_id')
+                    ->relationship('location', 'description')
+                    ->preload()
+                    ->autofocus()
+                    ->required(),
+
+                Components\DateTimePicker::make('checkin_at')
+                    ->default(Carbon::now())
+                    ->required(),
+
             ]);
     }
 
@@ -33,7 +54,7 @@ class CheckinResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('sequence'),
                 Tables\Columns\TextColumn::make('checkin_at')
-                    ->dateTime()->sortable()->label('When'),
+                    ->since()->sortable()->label('When'),
                 Tables\Columns\TextColumn::make('location.description'),
             ])
             ->defaultSort('checkin_at','desc')

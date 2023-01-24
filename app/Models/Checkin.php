@@ -9,6 +9,12 @@ class Checkin extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'type',
+        'checkin_at',
+        'location_id',
+    ];
+
     /**
      * The attributes that should be cast.
      *
