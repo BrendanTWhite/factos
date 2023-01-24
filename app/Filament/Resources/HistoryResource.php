@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\HistoryResource\Pages;
 use App\Filament\Resources\HistoryResource\RelationManagers;
-use App\Models\History;
+use App\Models\Checkin;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HistoryResource extends Resource
 {
-    protected static ?string $model = History::class;
+    protected static ?string $model = Checkin::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -31,17 +31,21 @@ class HistoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('sequence'),
+                Tables\Columns\TextColumn::make('checkin_at')
+                    ->dateTime()->sortable()->label('When'),
+                Tables\Columns\TextColumn::make('location.description'),
             ])
+            ->defaultSort('checkin_at','desc')
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
     
