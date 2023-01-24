@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\HistoryResource\Pages;
-use App\Filament\Resources\HistoryResource\RelationManagers;
+use App\Filament\Resources\CheckinResource\Pages;
+use App\Filament\Resources\CheckinResource\RelationManagers;
 use App\Models\Checkin;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -13,7 +13,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class HistoryResource extends Resource
+class CheckinResource extends Resource
 {
     protected static ?string $model = Checkin::class;
 
